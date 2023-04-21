@@ -10,10 +10,12 @@ part 'pokemon_dto.g.dart';
 @freezed
 class PokemonDto with _$PokemonDto{
   const factory PokemonDto({
+    @JsonKey(name: 'base_experience') required int baseExperience,
+    @JsonKey(name: 'is_default') required bool isDefault,
     required String name,
-    required String description,
     required int height,
     required int weight,
+    required int order
   }) = _PokemonDto;
 
   const PokemonDto._();
@@ -24,7 +26,9 @@ class PokemonDto with _$PokemonDto{
   Pokemon toDomain() {
     return Pokemon(
         name: name,
-        description: description,
+        baseExperience: baseExperience,
+        order: order,
+        isDefault: isDefault,
         height: height,
         weight: weight);
   }

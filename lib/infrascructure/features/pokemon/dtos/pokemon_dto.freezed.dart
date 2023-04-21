@@ -20,10 +20,14 @@ PokemonDto _$PokemonDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PokemonDto {
+  @JsonKey(name: 'base_experience')
+  int get baseExperience => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_default')
+  bool get isDefault => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +41,13 @@ abstract class $PokemonDtoCopyWith<$Res> {
           PokemonDto value, $Res Function(PokemonDto) then) =
       _$PokemonDtoCopyWithImpl<$Res, PokemonDto>;
   @useResult
-  $Res call({String name, String description, int height, int weight});
+  $Res call(
+      {@JsonKey(name: 'base_experience') int baseExperience,
+      @JsonKey(name: 'is_default') bool isDefault,
+      String name,
+      int height,
+      int weight,
+      int order});
 }
 
 /// @nodoc
@@ -53,19 +63,25 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? baseExperience = null,
+    Object? isDefault = null,
     Object? name = null,
-    Object? description = null,
     Object? height = null,
     Object? weight = null,
+    Object? order = null,
   }) {
     return _then(_value.copyWith(
+      baseExperience: null == baseExperience
+          ? _value.baseExperience
+          : baseExperience // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       height: null == height
           ? _value.height
@@ -74,6 +90,10 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
+              as int,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -87,7 +107,13 @@ abstract class _$$_PokemonDtoCopyWith<$Res>
       __$$_PokemonDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String description, int height, int weight});
+  $Res call(
+      {@JsonKey(name: 'base_experience') int baseExperience,
+      @JsonKey(name: 'is_default') bool isDefault,
+      String name,
+      int height,
+      int weight,
+      int order});
 }
 
 /// @nodoc
@@ -101,19 +127,25 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? baseExperience = null,
+    Object? isDefault = null,
     Object? name = null,
-    Object? description = null,
     Object? height = null,
     Object? weight = null,
+    Object? order = null,
   }) {
     return _then(_$_PokemonDto(
+      baseExperience: null == baseExperience
+          ? _value.baseExperience
+          : baseExperience // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
               as String,
       height: null == height
           ? _value.height
@@ -123,6 +155,10 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -131,27 +167,35 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PokemonDto extends _PokemonDto {
   const _$_PokemonDto(
-      {required this.name,
-      required this.description,
+      {@JsonKey(name: 'base_experience') required this.baseExperience,
+      @JsonKey(name: 'is_default') required this.isDefault,
+      required this.name,
       required this.height,
-      required this.weight})
+      required this.weight,
+      required this.order})
       : super._();
 
   factory _$_PokemonDto.fromJson(Map<String, dynamic> json) =>
       _$$_PokemonDtoFromJson(json);
 
   @override
-  final String name;
+  @JsonKey(name: 'base_experience')
+  final int baseExperience;
   @override
-  final String description;
+  @JsonKey(name: 'is_default')
+  final bool isDefault;
+  @override
+  final String name;
   @override
   final int height;
   @override
   final int weight;
+  @override
+  final int order;
 
   @override
   String toString() {
-    return 'PokemonDto(name: $name, description: $description, height: $height, weight: $weight)';
+    return 'PokemonDto(baseExperience: $baseExperience, isDefault: $isDefault, name: $name, height: $height, weight: $weight, order: $order)';
   }
 
   @override
@@ -159,17 +203,20 @@ class _$_PokemonDto extends _PokemonDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PokemonDto &&
+            (identical(other.baseExperience, baseExperience) ||
+                other.baseExperience == baseExperience) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.weight, weight) || other.weight == weight));
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.order, order) || other.order == order));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, description, height, weight);
+  int get hashCode => Object.hash(
+      runtimeType, baseExperience, isDefault, name, height, weight, order);
 
   @JsonKey(ignore: true)
   @override
@@ -187,23 +234,31 @@ class _$_PokemonDto extends _PokemonDto {
 
 abstract class _PokemonDto extends PokemonDto {
   const factory _PokemonDto(
-      {required final String name,
-      required final String description,
+      {@JsonKey(name: 'base_experience') required final int baseExperience,
+      @JsonKey(name: 'is_default') required final bool isDefault,
+      required final String name,
       required final int height,
-      required final int weight}) = _$_PokemonDto;
+      required final int weight,
+      required final int order}) = _$_PokemonDto;
   const _PokemonDto._() : super._();
 
   factory _PokemonDto.fromJson(Map<String, dynamic> json) =
       _$_PokemonDto.fromJson;
 
   @override
-  String get name;
+  @JsonKey(name: 'base_experience')
+  int get baseExperience;
   @override
-  String get description;
+  @JsonKey(name: 'is_default')
+  bool get isDefault;
+  @override
+  String get name;
   @override
   int get height;
   @override
   int get weight;
+  @override
+  int get order;
   @override
   @JsonKey(ignore: true)
   _$$_PokemonDtoCopyWith<_$_PokemonDto> get copyWith =>

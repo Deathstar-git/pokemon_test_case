@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon_test_case/ui/navigation/routes.gr.dart';
+import '../../../bloc/pokemon_bloc/pokemon_bloc.dart';
 import '../../common/colors.dart';
 
 //Главная страница
@@ -85,9 +87,8 @@ class MainPageState extends State {
                          ),
                        child: InkWell(
                          onTap: () {
-                           if (kDebugMode) {
-                             print('random pokemon');
-                           }
+                           context.read<PokemonBloc>().add(const PokemonEvent.getRandomPokemonById());
+                           context.router.push(const RandomPokemonRoute());
                            //TODO:Сделать экран показа случайного покемона
                          },
                          child:SizedBox(

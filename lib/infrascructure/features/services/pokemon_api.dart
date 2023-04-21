@@ -17,5 +17,7 @@ abstract class PokemonApi {
   @GET("/pokemon/{name}")
   Future<PokemonDto> getPokemonByName(@Path("name") String name);
 
+  @GET("/pokemon")
+  Future<dynamic> getPokemonCount();
 
 }

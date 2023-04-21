@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Pokemon {
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  int get baseExperience => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
+  bool get isDefault => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
 
@@ -30,7 +32,13 @@ abstract class $PokemonCopyWith<$Res> {
   factory $PokemonCopyWith(Pokemon value, $Res Function(Pokemon) then) =
       _$PokemonCopyWithImpl<$Res, Pokemon>;
   @useResult
-  $Res call({String name, String description, int height, int weight});
+  $Res call(
+      {String name,
+      int baseExperience,
+      int order,
+      bool isDefault,
+      int height,
+      int weight});
 }
 
 /// @nodoc
@@ -47,7 +55,9 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
   @override
   $Res call({
     Object? name = null,
-    Object? description = null,
+    Object? baseExperience = null,
+    Object? order = null,
+    Object? isDefault = null,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -56,10 +66,18 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      baseExperience: null == baseExperience
+          ? _value.baseExperience
+          : baseExperience // ignore: cast_nullable_to_non_nullable
+              as int,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -79,7 +97,13 @@ abstract class _$$_PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
       __$$_PokemonCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String description, int height, int weight});
+  $Res call(
+      {String name,
+      int baseExperience,
+      int order,
+      bool isDefault,
+      int height,
+      int weight});
 }
 
 /// @nodoc
@@ -93,7 +117,9 @@ class __$$_PokemonCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? description = null,
+    Object? baseExperience = null,
+    Object? order = null,
+    Object? isDefault = null,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -102,10 +128,18 @@ class __$$_PokemonCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      baseExperience: null == baseExperience
+          ? _value.baseExperience
+          : baseExperience // ignore: cast_nullable_to_non_nullable
+              as int,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -123,14 +157,20 @@ class __$$_PokemonCopyWithImpl<$Res>
 class _$_Pokemon implements _Pokemon {
   _$_Pokemon(
       {required this.name,
-      required this.description,
+      required this.baseExperience,
+      required this.order,
+      required this.isDefault,
       required this.height,
       required this.weight});
 
   @override
   final String name;
   @override
-  final String description;
+  final int baseExperience;
+  @override
+  final int order;
+  @override
+  final bool isDefault;
   @override
   final int height;
   @override
@@ -138,7 +178,7 @@ class _$_Pokemon implements _Pokemon {
 
   @override
   String toString() {
-    return 'Pokemon(name: $name, description: $description, height: $height, weight: $weight)';
+    return 'Pokemon(name: $name, baseExperience: $baseExperience, order: $order, isDefault: $isDefault, height: $height, weight: $weight)';
   }
 
   @override
@@ -147,15 +187,18 @@ class _$_Pokemon implements _Pokemon {
         (other.runtimeType == runtimeType &&
             other is _$_Pokemon &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.baseExperience, baseExperience) ||
+                other.baseExperience == baseExperience) &&
+            (identical(other.order, order) || other.order == order) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, description, height, weight);
+  int get hashCode => Object.hash(
+      runtimeType, name, baseExperience, order, isDefault, height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -167,14 +210,20 @@ class _$_Pokemon implements _Pokemon {
 abstract class _Pokemon implements Pokemon {
   factory _Pokemon(
       {required final String name,
-      required final String description,
+      required final int baseExperience,
+      required final int order,
+      required final bool isDefault,
       required final int height,
       required final int weight}) = _$_Pokemon;
 
   @override
   String get name;
   @override
-  String get description;
+  int get baseExperience;
+  @override
+  int get order;
+  @override
+  bool get isDefault;
   @override
   int get height;
   @override

@@ -15,9 +15,9 @@ class PokemonRepository extends IPokemonRepository {
   }
 
   @override
-  Future<Pokemon> getRandomPokemonById({required int id}) {
-    // TODO: implement getRandomPokemonById
-    throw UnimplementedError();
+  Future<Pokemon> getRandomPokemonById({required int id}) async{
+    final res = await _pokemonApi.getRandomPokemonById(id);
+    return res.toDomain();
   }
 
 

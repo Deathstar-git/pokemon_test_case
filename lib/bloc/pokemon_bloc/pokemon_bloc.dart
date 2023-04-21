@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/features/pokemon/i_pokemon_repository.dart';
 import '../../domain/features/pokemon/models/pokemon.dart';
+import '../../infrascructure/features/services/pokemon_randomizer.dart';
 
 part 'pokemon_event.dart';
 part 'pokemon_state.dart';
@@ -12,33 +13,45 @@ part 'pokemon_bloc.freezed.dart';
 @Injectable()
 class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   final IPokemonRepository _pokemonRepository;
-  PokemonBloc(this._pokemonRepository) : super(const PokemonState.initial());
+  final PokemonRandomizer _pokemonRandomizer;
 
-  Stream<PokemonState> mapEventToState(PokemonEvent event) async* {
-    yield* event.map(
-      getPokemonByName: (e) async* {
-        yield const PokemonState.loading();
+  Future<void> onGetRandomPokemonById(
+      GetRandomPokemonById event,
+      Emitter<PokemonState> emit,
+      ) async {
+    emit(const _Loading());
+    // try {
+      final id = await _pokemonRandomizer.getRandomId();
+      final pokemon = await _pokemonRepository.getRandomPokemonById(id: id);
+      emit(_Loaded(pokemon));
+    // } catch (e) {
+    //   emit(const _Error('Не удалось получить покемона'));
+    // }
+  }
 
-        try {
-          final pokemon = await _pokemonRepository.getPokemonByName(name: e.name);
-          yield PokemonState.loaded(pokemon);
-        } catch (e) {
-          yield const PokemonState.error('Не удалось получить покемона');
-        }
-      },
-      getRandomPokemonById: (e) async* {
-        yield const PokemonState.loading();
+  Future<void> onGetPokemonByName(
+      GetPokemonByName event,
+      Emitter<PokemonState> emit,
+      ) async {
+    emit(const _Loading());
+    try {
+      final id = await _pokemonRandomizer.getRandomId();
+      final pokemon = await _pokemonRepository.getRandomPokemonById(id: id);
+      emit(_Loaded(pokemon));
+    } catch (e) {
+      emit(const _Error('Не удалось получить покемона'));
+    }
+  }
 
-        try {
-          final pokemon = await _pokemonRepository.getRandomPokemonById(id: e.id);
-          yield PokemonState.loaded(pokemon);
-        } catch (e) {
-          yield const PokemonState.error('Не удалось получить покемона');
-        }
-    },
-      started: (e) async* {
-      yield const PokemonState.loading();
-    },
-    );
+  PokemonBloc(this._pokemonRepository, this._pokemonRandomizer)
+      : super(const PokemonState.initial()) {
+    on<PokemonEvent>((event, emit) async {
+      await event.map(
+        getRandomPokemonById:
+          (getRandomPokemonById) => onGetRandomPokemonById(getRandomPokemonById, emit),
+        getPokemonByName:
+            (getRandomPokemonById) => onGetPokemonByName(getRandomPokemonById, emit)
+      );
+    });
   }
 }

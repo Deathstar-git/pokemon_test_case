@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PokemonBloc>(
-            create: (_) => getIt<PokemonBloc>()..add(const PokemonEvent.started()),
+            create: (_) => getIt<PokemonBloc>(),
               child: MaterialApp.router(
                 title: 'Pokemon Demo',
                 debugShowCheckedModeBanner: false, //Выключаем Debug баннер

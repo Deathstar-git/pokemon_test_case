@@ -18,45 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PokemonEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String name) getPokemonByName,
-    required TResult Function(int id) getRandomPokemonById,
+    required TResult Function() getRandomPokemonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function(String name)? getPokemonByName,
-    TResult? Function(int id)? getRandomPokemonById,
+    TResult? Function()? getRandomPokemonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String name)? getPokemonByName,
-    TResult Function(int id)? getRandomPokemonById,
+    TResult Function()? getRandomPokemonById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_GetPokemonByName value) getPokemonByName,
-    required TResult Function(_GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(GetPokemonByName value) getPokemonByName,
+    required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_GetPokemonByName value)? getPokemonByName,
-    TResult? Function(_GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(GetPokemonByName value)? getPokemonByName,
+    TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_GetPokemonByName value)? getPokemonByName,
-    TResult Function(_GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(GetPokemonByName value)? getPokemonByName,
+    TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -81,127 +75,20 @@ class _$PokemonEventCopyWithImpl<$Res, $Val extends PokemonEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$PokemonEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'PokemonEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(String name) getPokemonByName,
-    required TResult Function(int id) getRandomPokemonById,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(String name)? getPokemonByName,
-    TResult? Function(int id)? getRandomPokemonById,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(String name)? getPokemonByName,
-    TResult Function(int id)? getRandomPokemonById,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_GetPokemonByName value) getPokemonByName,
-    required TResult Function(_GetRandomPokemonById value) getRandomPokemonById,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_GetPokemonByName value)? getPokemonByName,
-    TResult? Function(_GetRandomPokemonById value)? getRandomPokemonById,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_GetPokemonByName value)? getPokemonByName,
-    TResult Function(_GetRandomPokemonById value)? getRandomPokemonById,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements PokemonEvent {
-  const factory _Started() = _$_Started;
-}
-
-/// @nodoc
-abstract class _$$_GetPokemonByNameCopyWith<$Res> {
-  factory _$$_GetPokemonByNameCopyWith(
-          _$_GetPokemonByName value, $Res Function(_$_GetPokemonByName) then) =
-      __$$_GetPokemonByNameCopyWithImpl<$Res>;
+abstract class _$$GetPokemonByNameCopyWith<$Res> {
+  factory _$$GetPokemonByNameCopyWith(
+          _$GetPokemonByName value, $Res Function(_$GetPokemonByName) then) =
+      __$$GetPokemonByNameCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$_GetPokemonByNameCopyWithImpl<$Res>
-    extends _$PokemonEventCopyWithImpl<$Res, _$_GetPokemonByName>
-    implements _$$_GetPokemonByNameCopyWith<$Res> {
-  __$$_GetPokemonByNameCopyWithImpl(
-      _$_GetPokemonByName _value, $Res Function(_$_GetPokemonByName) _then)
+class __$$GetPokemonByNameCopyWithImpl<$Res>
+    extends _$PokemonEventCopyWithImpl<$Res, _$GetPokemonByName>
+    implements _$$GetPokemonByNameCopyWith<$Res> {
+  __$$GetPokemonByNameCopyWithImpl(
+      _$GetPokemonByName _value, $Res Function(_$GetPokemonByName) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -209,7 +96,7 @@ class __$$_GetPokemonByNameCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$_GetPokemonByName(
+    return _then(_$GetPokemonByName(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -220,8 +107,8 @@ class __$$_GetPokemonByNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetPokemonByName implements _GetPokemonByName {
-  const _$_GetPokemonByName(this.name);
+class _$GetPokemonByName implements GetPokemonByName {
+  const _$GetPokemonByName(this.name);
 
   @override
   final String name;
@@ -235,7 +122,7 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetPokemonByName &&
+            other is _$GetPokemonByName &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -245,15 +132,14 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetPokemonByNameCopyWith<_$_GetPokemonByName> get copyWith =>
-      __$$_GetPokemonByNameCopyWithImpl<_$_GetPokemonByName>(this, _$identity);
+  _$$GetPokemonByNameCopyWith<_$GetPokemonByName> get copyWith =>
+      __$$GetPokemonByNameCopyWithImpl<_$GetPokemonByName>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String name) getPokemonByName,
-    required TResult Function(int id) getRandomPokemonById,
+    required TResult Function() getRandomPokemonById,
   }) {
     return getPokemonByName(name);
   }
@@ -261,9 +147,8 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function(String name)? getPokemonByName,
-    TResult? Function(int id)? getRandomPokemonById,
+    TResult? Function()? getRandomPokemonById,
   }) {
     return getPokemonByName?.call(name);
   }
@@ -271,9 +156,8 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String name)? getPokemonByName,
-    TResult Function(int id)? getRandomPokemonById,
+    TResult Function()? getRandomPokemonById,
     required TResult orElse(),
   }) {
     if (getPokemonByName != null) {
@@ -285,9 +169,8 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_GetPokemonByName value) getPokemonByName,
-    required TResult Function(_GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(GetPokemonByName value) getPokemonByName,
+    required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
   }) {
     return getPokemonByName(this);
   }
@@ -295,9 +178,8 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_GetPokemonByName value)? getPokemonByName,
-    TResult? Function(_GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(GetPokemonByName value)? getPokemonByName,
+    TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
   }) {
     return getPokemonByName?.call(this);
   }
@@ -305,9 +187,8 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_GetPokemonByName value)? getPokemonByName,
-    TResult Function(_GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(GetPokemonByName value)? getPokemonByName,
+    TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
     required TResult orElse(),
   }) {
     if (getPokemonByName != null) {
@@ -317,107 +198,77 @@ class _$_GetPokemonByName implements _GetPokemonByName {
   }
 }
 
-abstract class _GetPokemonByName implements PokemonEvent {
-  const factory _GetPokemonByName(final String name) = _$_GetPokemonByName;
+abstract class GetPokemonByName implements PokemonEvent {
+  const factory GetPokemonByName(final String name) = _$GetPokemonByName;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$_GetPokemonByNameCopyWith<_$_GetPokemonByName> get copyWith =>
+  _$$GetPokemonByNameCopyWith<_$GetPokemonByName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GetRandomPokemonByIdCopyWith<$Res> {
-  factory _$$_GetRandomPokemonByIdCopyWith(_$_GetRandomPokemonById value,
-          $Res Function(_$_GetRandomPokemonById) then) =
-      __$$_GetRandomPokemonByIdCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int id});
+abstract class _$$GetRandomPokemonByIdCopyWith<$Res> {
+  factory _$$GetRandomPokemonByIdCopyWith(_$GetRandomPokemonById value,
+          $Res Function(_$GetRandomPokemonById) then) =
+      __$$GetRandomPokemonByIdCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetRandomPokemonByIdCopyWithImpl<$Res>
-    extends _$PokemonEventCopyWithImpl<$Res, _$_GetRandomPokemonById>
-    implements _$$_GetRandomPokemonByIdCopyWith<$Res> {
-  __$$_GetRandomPokemonByIdCopyWithImpl(_$_GetRandomPokemonById _value,
-      $Res Function(_$_GetRandomPokemonById) _then)
+class __$$GetRandomPokemonByIdCopyWithImpl<$Res>
+    extends _$PokemonEventCopyWithImpl<$Res, _$GetRandomPokemonById>
+    implements _$$GetRandomPokemonByIdCopyWith<$Res> {
+  __$$GetRandomPokemonByIdCopyWithImpl(_$GetRandomPokemonById _value,
+      $Res Function(_$GetRandomPokemonById) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$_GetRandomPokemonById(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$_GetRandomPokemonById implements _GetRandomPokemonById {
-  const _$_GetRandomPokemonById(this.id);
-
-  @override
-  final int id;
+class _$GetRandomPokemonById implements GetRandomPokemonById {
+  const _$GetRandomPokemonById();
 
   @override
   String toString() {
-    return 'PokemonEvent.getRandomPokemonById(id: $id)';
+    return 'PokemonEvent.getRandomPokemonById()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_GetRandomPokemonById &&
-            (identical(other.id, id) || other.id == id));
+        (other.runtimeType == runtimeType && other is _$GetRandomPokemonById);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_GetRandomPokemonByIdCopyWith<_$_GetRandomPokemonById> get copyWith =>
-      __$$_GetRandomPokemonByIdCopyWithImpl<_$_GetRandomPokemonById>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function(String name) getPokemonByName,
-    required TResult Function(int id) getRandomPokemonById,
+    required TResult Function() getRandomPokemonById,
   }) {
-    return getRandomPokemonById(id);
+    return getRandomPokemonById();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function(String name)? getPokemonByName,
-    TResult? Function(int id)? getRandomPokemonById,
+    TResult? Function()? getRandomPokemonById,
   }) {
-    return getRandomPokemonById?.call(id);
+    return getRandomPokemonById?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function(String name)? getPokemonByName,
-    TResult Function(int id)? getRandomPokemonById,
+    TResult Function()? getRandomPokemonById,
     required TResult orElse(),
   }) {
     if (getRandomPokemonById != null) {
-      return getRandomPokemonById(id);
+      return getRandomPokemonById();
     }
     return orElse();
   }
@@ -425,9 +276,8 @@ class _$_GetRandomPokemonById implements _GetRandomPokemonById {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_GetPokemonByName value) getPokemonByName,
-    required TResult Function(_GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(GetPokemonByName value) getPokemonByName,
+    required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
   }) {
     return getRandomPokemonById(this);
   }
@@ -435,9 +285,8 @@ class _$_GetRandomPokemonById implements _GetRandomPokemonById {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_GetPokemonByName value)? getPokemonByName,
-    TResult? Function(_GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(GetPokemonByName value)? getPokemonByName,
+    TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
   }) {
     return getRandomPokemonById?.call(this);
   }
@@ -445,9 +294,8 @@ class _$_GetRandomPokemonById implements _GetRandomPokemonById {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_GetPokemonByName value)? getPokemonByName,
-    TResult Function(_GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(GetPokemonByName value)? getPokemonByName,
+    TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
     required TResult orElse(),
   }) {
     if (getRandomPokemonById != null) {
@@ -457,13 +305,8 @@ class _$_GetRandomPokemonById implements _GetRandomPokemonById {
   }
 }
 
-abstract class _GetRandomPokemonById implements PokemonEvent {
-  const factory _GetRandomPokemonById(final int id) = _$_GetRandomPokemonById;
-
-  int get id;
-  @JsonKey(ignore: true)
-  _$$_GetRandomPokemonByIdCopyWith<_$_GetRandomPokemonById> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class GetRandomPokemonById implements PokemonEvent {
+  const factory GetRandomPokemonById() = _$GetRandomPokemonById;
 }
 
 /// @nodoc
