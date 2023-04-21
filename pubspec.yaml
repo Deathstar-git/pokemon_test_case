@@ -32,6 +32,7 @@ dependencies:
 
   # Icons
   cupertino_icons: ^1.0.2
+  simple_animations: ^5.0.0+3
 
 dev_dependencies:
   # Tests
@@ -53,6 +54,9 @@ dev_dependencies:
   dart_code_metrics: ^5.6.0
 
 flutter:
-
+  assets:
+    - graphics/images/splash_img.jpg
+    - graphics/images/random_pokemon_img.jpg
+    - graphics/images/get_pokemon_img.png
   uses-material-design: true
 
