@@ -21,8 +21,8 @@ PokemonDto _$PokemonDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PokemonDto {
   int get id => throw _privateConstructorUsedError;
-  String get name =>
-      throw _privateConstructorUsedError; // required List<AbilityDto> abilities,
+  String get name => throw _privateConstructorUsedError;
+  List<AbilityDto> get abilities => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
 
@@ -38,7 +38,12 @@ abstract class $PokemonDtoCopyWith<$Res> {
           PokemonDto value, $Res Function(PokemonDto) then) =
       _$PokemonDtoCopyWithImpl<$Res, PokemonDto>;
   @useResult
-  $Res call({int id, String name, int height, int weight});
+  $Res call(
+      {int id,
+      String name,
+      List<AbilityDto> abilities,
+      int height,
+      int weight});
 }
 
 /// @nodoc
@@ -56,6 +61,7 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? abilities = null,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -68,6 +74,10 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      abilities: null == abilities
+          ? _value.abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<AbilityDto>,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -88,7 +98,12 @@ abstract class _$$_PokemonDtoCopyWith<$Res>
       __$$_PokemonDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, int height, int weight});
+  $Res call(
+      {int id,
+      String name,
+      List<AbilityDto> abilities,
+      int height,
+      int weight});
 }
 
 /// @nodoc
@@ -104,6 +119,7 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? abilities = null,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -116,6 +132,10 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      abilities: null == abilities
+          ? _value._abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<AbilityDto>,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -134,9 +154,11 @@ class _$_PokemonDto extends _PokemonDto {
   const _$_PokemonDto(
       {required this.id,
       required this.name,
+      final List<AbilityDto> abilities = const [],
       required this.height,
       required this.weight})
-      : super._();
+      : _abilities = abilities,
+        super._();
 
   factory _$_PokemonDto.fromJson(Map<String, dynamic> json) =>
       _$$_PokemonDtoFromJson(json);
@@ -145,7 +167,15 @@ class _$_PokemonDto extends _PokemonDto {
   final int id;
   @override
   final String name;
-// required List<AbilityDto> abilities,
+  final List<AbilityDto> _abilities;
+  @override
+  @JsonKey()
+  List<AbilityDto> get abilities {
+    if (_abilities is EqualUnmodifiableListView) return _abilities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_abilities);
+  }
+
   @override
   final int height;
   @override
@@ -153,7 +183,7 @@ class _$_PokemonDto extends _PokemonDto {
 
   @override
   String toString() {
-    return 'PokemonDto(id: $id, name: $name, height: $height, weight: $weight)';
+    return 'PokemonDto(id: $id, name: $name, abilities: $abilities, height: $height, weight: $weight)';
   }
 
   @override
@@ -163,13 +193,16 @@ class _$_PokemonDto extends _PokemonDto {
             other is _$_PokemonDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality()
+                .equals(other._abilities, _abilities) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, height, weight);
+  int get hashCode => Object.hash(runtimeType, id, name,
+      const DeepCollectionEquality().hash(_abilities), height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -189,6 +222,7 @@ abstract class _PokemonDto extends PokemonDto {
   const factory _PokemonDto(
       {required final int id,
       required final String name,
+      final List<AbilityDto> abilities,
       required final int height,
       required final int weight}) = _$_PokemonDto;
   const _PokemonDto._() : super._();
@@ -200,7 +234,9 @@ abstract class _PokemonDto extends PokemonDto {
   int get id;
   @override
   String get name;
-  @override // required List<AbilityDto> abilities,
+  @override
+  List<AbilityDto> get abilities;
+  @override
   int get height;
   @override
   int get weight;

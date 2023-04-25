@@ -12,7 +12,7 @@ class PokemonDto with _$PokemonDto{
   const factory PokemonDto({
     required int id,
     required String name,
-    // required List<AbilityDto> abilities,
+    @Default([]) List<AbilityDto> abilities,
     required int height,
     required int weight,
   }) = _PokemonDto;
@@ -27,7 +27,7 @@ class PokemonDto with _$PokemonDto{
         id: id,
         name: name,
         // abilities: <Ability> [],
-        // abilities: abilities.map((ability) => ability.ability.name).toList(),
+        abilities: abilities.map((ability) => ability.name).toList() as List<Ability>,
         height: height,
         weight: weight);
   }

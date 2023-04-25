@@ -10,6 +10,10 @@ _$_PokemonDto _$$_PokemonDtoFromJson(Map<String, dynamic> json) =>
     _$_PokemonDto(
       id: json['id'] as int,
       name: json['name'] as String,
+      abilities: (json['abilities'] as List<dynamic>?)
+              ?.map((e) => AbilityDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       height: json['height'] as int,
       weight: json['weight'] as int,
     );
@@ -18,6 +22,7 @@ Map<String, dynamic> _$$_PokemonDtoToJson(_$_PokemonDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'abilities': instance.abilities,
       'height': instance.height,
       'weight': instance.weight,
     };

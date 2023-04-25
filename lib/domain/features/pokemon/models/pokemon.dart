@@ -7,7 +7,7 @@ class Pokemon with _$Pokemon {
   factory Pokemon({
     required int id,
     required String name,
-    // required List<Ability> abilities,
+    required List<Ability> abilities,
     required int height,
     required int weight,
   }) = _Pokemon;

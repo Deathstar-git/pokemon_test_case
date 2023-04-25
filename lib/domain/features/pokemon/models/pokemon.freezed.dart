@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Pokemon {
   int get id => throw _privateConstructorUsedError;
-  String get name =>
-      throw _privateConstructorUsedError; // required List<Ability> abilities,
+  String get name => throw _privateConstructorUsedError;
+  List<Ability> get abilities => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
 
@@ -31,7 +31,8 @@ abstract class $PokemonCopyWith<$Res> {
   factory $PokemonCopyWith(Pokemon value, $Res Function(Pokemon) then) =
       _$PokemonCopyWithImpl<$Res, Pokemon>;
   @useResult
-  $Res call({int id, String name, int height, int weight});
+  $Res call(
+      {int id, String name, List<Ability> abilities, int height, int weight});
 }
 
 /// @nodoc
@@ -49,6 +50,7 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? abilities = null,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -61,6 +63,10 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      abilities: null == abilities
+          ? _value.abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<Ability>,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -80,7 +86,8 @@ abstract class _$$_PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
       __$$_PokemonCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, int height, int weight});
+  $Res call(
+      {int id, String name, List<Ability> abilities, int height, int weight});
 }
 
 /// @nodoc
@@ -95,6 +102,7 @@ class __$$_PokemonCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? abilities = null,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -107,6 +115,10 @@ class __$$_PokemonCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      abilities: null == abilities
+          ? _value._abilities
+          : abilities // ignore: cast_nullable_to_non_nullable
+              as List<Ability>,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -125,14 +137,23 @@ class _$_Pokemon implements _Pokemon {
   _$_Pokemon(
       {required this.id,
       required this.name,
+      required final List<Ability> abilities,
       required this.height,
-      required this.weight});
+      required this.weight})
+      : _abilities = abilities;
 
   @override
   final int id;
   @override
   final String name;
-// required List<Ability> abilities,
+  final List<Ability> _abilities;
+  @override
+  List<Ability> get abilities {
+    if (_abilities is EqualUnmodifiableListView) return _abilities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_abilities);
+  }
+
   @override
   final int height;
   @override
@@ -140,7 +161,7 @@ class _$_Pokemon implements _Pokemon {
 
   @override
   String toString() {
-    return 'Pokemon(id: $id, name: $name, height: $height, weight: $weight)';
+    return 'Pokemon(id: $id, name: $name, abilities: $abilities, height: $height, weight: $weight)';
   }
 
   @override
@@ -150,12 +171,15 @@ class _$_Pokemon implements _Pokemon {
             other is _$_Pokemon &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality()
+                .equals(other._abilities, _abilities) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, height, weight);
+  int get hashCode => Object.hash(runtimeType, id, name,
+      const DeepCollectionEquality().hash(_abilities), height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -168,6 +192,7 @@ abstract class _Pokemon implements Pokemon {
   factory _Pokemon(
       {required final int id,
       required final String name,
+      required final List<Ability> abilities,
       required final int height,
       required final int weight}) = _$_Pokemon;
 
@@ -175,7 +200,9 @@ abstract class _Pokemon implements Pokemon {
   int get id;
   @override
   String get name;
-  @override // required List<Ability> abilities,
+  @override
+  List<Ability> get abilities;
+  @override
   int get height;
   @override
   int get weight;
