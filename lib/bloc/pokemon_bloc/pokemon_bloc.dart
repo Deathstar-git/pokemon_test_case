@@ -20,13 +20,13 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
       Emitter<PokemonState> emit,
       ) async {
     emit(const _Loading());
-    // try {
+    try {
       final id = await _pokemonRandomizer.getRandomId();
       final pokemon = await _pokemonRepository.getRandomPokemonById(id: id);
       emit(_Loaded(pokemon));
-    // } catch (e) {
-    //   emit(const _Error('Не удалось получить покемона'));
-    // }
+    } catch (e) {
+      emit(_Error(e.toString()));
+    }
   }
 
   Future<void> onGetPokemonByName(

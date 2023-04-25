@@ -20,14 +20,11 @@ PokemonDto _$PokemonDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PokemonDto {
-  @JsonKey(name: 'base_experience')
-  int get baseExperience => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_default')
-  bool get isDefault => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get name =>
+      throw _privateConstructorUsedError; // required List<AbilityDto> abilities,
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
-  int get order => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,13 +38,7 @@ abstract class $PokemonDtoCopyWith<$Res> {
           PokemonDto value, $Res Function(PokemonDto) then) =
       _$PokemonDtoCopyWithImpl<$Res, PokemonDto>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'base_experience') int baseExperience,
-      @JsonKey(name: 'is_default') bool isDefault,
-      String name,
-      int height,
-      int weight,
-      int order});
+  $Res call({int id, String name, int height, int weight});
 }
 
 /// @nodoc
@@ -63,22 +54,16 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? baseExperience = null,
-    Object? isDefault = null,
+    Object? id = null,
     Object? name = null,
     Object? height = null,
     Object? weight = null,
-    Object? order = null,
   }) {
     return _then(_value.copyWith(
-      baseExperience: null == baseExperience
-          ? _value.baseExperience
-          : baseExperience // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -90,10 +75,6 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as int,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -107,13 +88,7 @@ abstract class _$$_PokemonDtoCopyWith<$Res>
       __$$_PokemonDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'base_experience') int baseExperience,
-      @JsonKey(name: 'is_default') bool isDefault,
-      String name,
-      int height,
-      int weight,
-      int order});
+  $Res call({int id, String name, int height, int weight});
 }
 
 /// @nodoc
@@ -127,22 +102,16 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? baseExperience = null,
-    Object? isDefault = null,
+    Object? id = null,
     Object? name = null,
     Object? height = null,
     Object? weight = null,
-    Object? order = null,
   }) {
     return _then(_$_PokemonDto(
-      baseExperience: null == baseExperience
-          ? _value.baseExperience
-          : baseExperience // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -155,10 +124,6 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -167,35 +132,28 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PokemonDto extends _PokemonDto {
   const _$_PokemonDto(
-      {@JsonKey(name: 'base_experience') required this.baseExperience,
-      @JsonKey(name: 'is_default') required this.isDefault,
+      {required this.id,
       required this.name,
       required this.height,
-      required this.weight,
-      required this.order})
+      required this.weight})
       : super._();
 
   factory _$_PokemonDto.fromJson(Map<String, dynamic> json) =>
       _$$_PokemonDtoFromJson(json);
 
   @override
-  @JsonKey(name: 'base_experience')
-  final int baseExperience;
-  @override
-  @JsonKey(name: 'is_default')
-  final bool isDefault;
+  final int id;
   @override
   final String name;
+// required List<AbilityDto> abilities,
   @override
   final int height;
   @override
   final int weight;
-  @override
-  final int order;
 
   @override
   String toString() {
-    return 'PokemonDto(baseExperience: $baseExperience, isDefault: $isDefault, name: $name, height: $height, weight: $weight, order: $order)';
+    return 'PokemonDto(id: $id, name: $name, height: $height, weight: $weight)';
   }
 
   @override
@@ -203,20 +161,15 @@ class _$_PokemonDto extends _PokemonDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PokemonDto &&
-            (identical(other.baseExperience, baseExperience) ||
-                other.baseExperience == baseExperience) &&
-            (identical(other.isDefault, isDefault) ||
-                other.isDefault == isDefault) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.order, order) || other.order == order));
+            (identical(other.weight, weight) || other.weight == weight));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, baseExperience, isDefault, name, height, weight, order);
+  int get hashCode => Object.hash(runtimeType, id, name, height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -234,33 +187,179 @@ class _$_PokemonDto extends _PokemonDto {
 
 abstract class _PokemonDto extends PokemonDto {
   const factory _PokemonDto(
-      {@JsonKey(name: 'base_experience') required final int baseExperience,
-      @JsonKey(name: 'is_default') required final bool isDefault,
+      {required final int id,
       required final String name,
       required final int height,
-      required final int weight,
-      required final int order}) = _$_PokemonDto;
+      required final int weight}) = _$_PokemonDto;
   const _PokemonDto._() : super._();
 
   factory _PokemonDto.fromJson(Map<String, dynamic> json) =
       _$_PokemonDto.fromJson;
 
   @override
-  @JsonKey(name: 'base_experience')
-  int get baseExperience;
-  @override
-  @JsonKey(name: 'is_default')
-  bool get isDefault;
+  int get id;
   @override
   String get name;
-  @override
+  @override // required List<AbilityDto> abilities,
   int get height;
   @override
   int get weight;
   @override
-  int get order;
-  @override
   @JsonKey(ignore: true)
   _$$_PokemonDtoCopyWith<_$_PokemonDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AbilityDto _$AbilityDtoFromJson(Map<String, dynamic> json) {
+  return _AbilityDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AbilityDto {
+  String get name => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AbilityDtoCopyWith<AbilityDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AbilityDtoCopyWith<$Res> {
+  factory $AbilityDtoCopyWith(
+          AbilityDto value, $Res Function(AbilityDto) then) =
+      _$AbilityDtoCopyWithImpl<$Res, AbilityDto>;
+  @useResult
+  $Res call({String name, String url});
+}
+
+/// @nodoc
+class _$AbilityDtoCopyWithImpl<$Res, $Val extends AbilityDto>
+    implements $AbilityDtoCopyWith<$Res> {
+  _$AbilityDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? url = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AbilityDtoCopyWith<$Res>
+    implements $AbilityDtoCopyWith<$Res> {
+  factory _$$_AbilityDtoCopyWith(
+          _$_AbilityDto value, $Res Function(_$_AbilityDto) then) =
+      __$$_AbilityDtoCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String url});
+}
+
+/// @nodoc
+class __$$_AbilityDtoCopyWithImpl<$Res>
+    extends _$AbilityDtoCopyWithImpl<$Res, _$_AbilityDto>
+    implements _$$_AbilityDtoCopyWith<$Res> {
+  __$$_AbilityDtoCopyWithImpl(
+      _$_AbilityDto _value, $Res Function(_$_AbilityDto) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? url = null,
+  }) {
+    return _then(_$_AbilityDto(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_AbilityDto extends _AbilityDto {
+  const _$_AbilityDto({required this.name, required this.url}) : super._();
+
+  factory _$_AbilityDto.fromJson(Map<String, dynamic> json) =>
+      _$$_AbilityDtoFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final String url;
+
+  @override
+  String toString() {
+    return 'AbilityDto(name: $name, url: $url)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AbilityDto &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.url, url) || other.url == url));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, url);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AbilityDtoCopyWith<_$_AbilityDto> get copyWith =>
+      __$$_AbilityDtoCopyWithImpl<_$_AbilityDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AbilityDtoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AbilityDto extends AbilityDto {
+  const factory _AbilityDto(
+      {required final String name, required final String url}) = _$_AbilityDto;
+  const _AbilityDto._() : super._();
+
+  factory _AbilityDto.fromJson(Map<String, dynamic> json) =
+      _$_AbilityDto.fromJson;
+
+  @override
+  String get name;
+  @override
+  String get url;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AbilityDtoCopyWith<_$_AbilityDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

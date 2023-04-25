@@ -108,7 +108,7 @@ class MainPageState extends State {
                                                  foreground: Paint()
                                                    ..style = PaintingStyle.stroke
                                                    ..strokeWidth = 3
-                                                   ..color = AppColors.blueText
+                                                   ..color = AppColors.darkBlue
                                              )
                                          ),
                                          Text(
@@ -169,7 +169,7 @@ class MainPageState extends State {
                                               foreground: Paint()
                                                 ..style = PaintingStyle.stroke
                                                 ..strokeWidth = 3
-                                                ..color = AppColors.blueText
+                                                ..color = AppColors.darkBlue
                                           )
                                       ),
                                       Text(

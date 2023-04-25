@@ -5,12 +5,19 @@ part 'pokemon.freezed.dart';
 @freezed
 class Pokemon with _$Pokemon {
   factory Pokemon({
+    required int id,
     required String name,
-    required int baseExperience,
-    required int order,
-    required bool isDefault,
+    // required List<Ability> abilities,
     required int height,
     required int weight,
   }) = _Pokemon;
 
+}
+
+@freezed
+class Ability with _$Ability {
+  const factory Ability({
+    required String name,
+    required String url,
+  }) = _Ability;
 }

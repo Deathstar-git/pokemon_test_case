@@ -16,10 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Pokemon {
-  String get name => throw _privateConstructorUsedError;
-  int get baseExperience => throw _privateConstructorUsedError;
-  int get order => throw _privateConstructorUsedError;
-  bool get isDefault => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get name =>
+      throw _privateConstructorUsedError; // required List<Ability> abilities,
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
 
@@ -32,13 +31,7 @@ abstract class $PokemonCopyWith<$Res> {
   factory $PokemonCopyWith(Pokemon value, $Res Function(Pokemon) then) =
       _$PokemonCopyWithImpl<$Res, Pokemon>;
   @useResult
-  $Res call(
-      {String name,
-      int baseExperience,
-      int order,
-      bool isDefault,
-      int height,
-      int weight});
+  $Res call({int id, String name, int height, int weight});
 }
 
 /// @nodoc
@@ -54,30 +47,20 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
-    Object? baseExperience = null,
-    Object? order = null,
-    Object? isDefault = null,
     Object? height = null,
     Object? weight = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      baseExperience: null == baseExperience
-          ? _value.baseExperience
-          : baseExperience // ignore: cast_nullable_to_non_nullable
-              as int,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -97,13 +80,7 @@ abstract class _$$_PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
       __$$_PokemonCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String name,
-      int baseExperience,
-      int order,
-      bool isDefault,
-      int height,
-      int weight});
+  $Res call({int id, String name, int height, int weight});
 }
 
 /// @nodoc
@@ -116,30 +93,20 @@ class __$$_PokemonCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
-    Object? baseExperience = null,
-    Object? order = null,
-    Object? isDefault = null,
     Object? height = null,
     Object? weight = null,
   }) {
     return _then(_$_Pokemon(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      baseExperience: null == baseExperience
-          ? _value.baseExperience
-          : baseExperience // ignore: cast_nullable_to_non_nullable
-              as int,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -156,21 +123,16 @@ class __$$_PokemonCopyWithImpl<$Res>
 
 class _$_Pokemon implements _Pokemon {
   _$_Pokemon(
-      {required this.name,
-      required this.baseExperience,
-      required this.order,
-      required this.isDefault,
+      {required this.id,
+      required this.name,
       required this.height,
       required this.weight});
 
   @override
+  final int id;
+  @override
   final String name;
-  @override
-  final int baseExperience;
-  @override
-  final int order;
-  @override
-  final bool isDefault;
+// required List<Ability> abilities,
   @override
   final int height;
   @override
@@ -178,7 +140,7 @@ class _$_Pokemon implements _Pokemon {
 
   @override
   String toString() {
-    return 'Pokemon(name: $name, baseExperience: $baseExperience, order: $order, isDefault: $isDefault, height: $height, weight: $weight)';
+    return 'Pokemon(id: $id, name: $name, height: $height, weight: $weight)';
   }
 
   @override
@@ -186,19 +148,14 @@ class _$_Pokemon implements _Pokemon {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Pokemon &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.baseExperience, baseExperience) ||
-                other.baseExperience == baseExperience) &&
-            (identical(other.order, order) || other.order == order) &&
-            (identical(other.isDefault, isDefault) ||
-                other.isDefault == isDefault) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, baseExperience, order, isDefault, height, weight);
+  int get hashCode => Object.hash(runtimeType, id, name, height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -209,27 +166,151 @@ class _$_Pokemon implements _Pokemon {
 
 abstract class _Pokemon implements Pokemon {
   factory _Pokemon(
-      {required final String name,
-      required final int baseExperience,
-      required final int order,
-      required final bool isDefault,
+      {required final int id,
+      required final String name,
       required final int height,
       required final int weight}) = _$_Pokemon;
 
   @override
+  int get id;
+  @override
   String get name;
-  @override
-  int get baseExperience;
-  @override
-  int get order;
-  @override
-  bool get isDefault;
-  @override
+  @override // required List<Ability> abilities,
   int get height;
   @override
   int get weight;
   @override
   @JsonKey(ignore: true)
   _$$_PokemonCopyWith<_$_Pokemon> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Ability {
+  String get name => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AbilityCopyWith<Ability> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AbilityCopyWith<$Res> {
+  factory $AbilityCopyWith(Ability value, $Res Function(Ability) then) =
+      _$AbilityCopyWithImpl<$Res, Ability>;
+  @useResult
+  $Res call({String name, String url});
+}
+
+/// @nodoc
+class _$AbilityCopyWithImpl<$Res, $Val extends Ability>
+    implements $AbilityCopyWith<$Res> {
+  _$AbilityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? url = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AbilityCopyWith<$Res> implements $AbilityCopyWith<$Res> {
+  factory _$$_AbilityCopyWith(
+          _$_Ability value, $Res Function(_$_Ability) then) =
+      __$$_AbilityCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String url});
+}
+
+/// @nodoc
+class __$$_AbilityCopyWithImpl<$Res>
+    extends _$AbilityCopyWithImpl<$Res, _$_Ability>
+    implements _$$_AbilityCopyWith<$Res> {
+  __$$_AbilityCopyWithImpl(_$_Ability _value, $Res Function(_$_Ability) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? url = null,
+  }) {
+    return _then(_$_Ability(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Ability implements _Ability {
+  const _$_Ability({required this.name, required this.url});
+
+  @override
+  final String name;
+  @override
+  final String url;
+
+  @override
+  String toString() {
+    return 'Ability(name: $name, url: $url)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Ability &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.url, url) || other.url == url));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, url);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AbilityCopyWith<_$_Ability> get copyWith =>
+      __$$_AbilityCopyWithImpl<_$_Ability>(this, _$identity);
+}
+
+abstract class _Ability implements Ability {
+  const factory _Ability(
+      {required final String name, required final String url}) = _$_Ability;
+
+  @override
+  String get name;
+  @override
+  String get url;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AbilityCopyWith<_$_Ability> get copyWith =>
       throw _privateConstructorUsedError;
 }

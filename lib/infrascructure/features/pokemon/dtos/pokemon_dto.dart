@@ -10,12 +10,11 @@ part 'pokemon_dto.g.dart';
 @freezed
 class PokemonDto with _$PokemonDto{
   const factory PokemonDto({
-    @JsonKey(name: 'base_experience') required int baseExperience,
-    @JsonKey(name: 'is_default') required bool isDefault,
+    required int id,
     required String name,
+    // required List<AbilityDto> abilities,
     required int height,
     required int weight,
-    required int order
   }) = _PokemonDto;
 
   const PokemonDto._();
@@ -25,11 +24,31 @@ class PokemonDto with _$PokemonDto{
 
   Pokemon toDomain() {
     return Pokemon(
+        id: id,
         name: name,
-        baseExperience: baseExperience,
-        order: order,
-        isDefault: isDefault,
+        // abilities: <Ability> [],
+        // abilities: abilities.map((ability) => ability.ability.name).toList(),
         height: height,
         weight: weight);
+  }
+}
+
+@freezed
+class AbilityDto with _$AbilityDto {
+  const factory AbilityDto({
+    required String name,
+    required String url,
+  }) = _AbilityDto;
+
+  factory AbilityDto.fromJson(Map<String, dynamic> json) =>
+      _$AbilityDtoFromJson(json);
+
+  const AbilityDto._();
+
+  Ability toDomain() {
+    return Ability(
+        url: url,
+        name: name,
+    );
   }
 }

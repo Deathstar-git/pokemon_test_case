@@ -22,8 +22,8 @@ class SplashPage extends StatelessWidget {
                       const Padding(
                           padding: EdgeInsets.all(20),
                           child: LinearProgressIndicator(
-                            color: Colors.amber,
-                            backgroundColor: Colors.amberAccent,
+                            color: AppColors.yellow,
+                            backgroundColor: AppColors.lightYellow,
                           ),
                       )
                     ]
