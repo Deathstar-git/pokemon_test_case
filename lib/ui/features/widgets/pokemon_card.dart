@@ -15,7 +15,7 @@ class PokemonCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColors.darkBlue,
             borderRadius: const BorderRadius.all(
-                Radius.circular(2.0)
+                Radius.circular(10.0)
             ),
             border: Border.all(
                 color: AppColors.strokeBorder,
@@ -43,15 +43,47 @@ class PokemonCard extends StatelessWidget {
                 Text('${pokemon.weight} hg'),
               ],)
             ],),
+            const Text('Способности:'),
+            Wrap(
+              spacing: 8, // расстояние между элементами в ряду
+              children: pokemon.abilities?.map((abilityList) {
+                final ability = abilityList.ability?[0];
+                if (ability != null) {
+                  return Chip(
+                    label: Text(ability.name!),
+                  );
+                } else {
+                  return const SizedBox();
+                }
+              }).toList() ?? const [],
+            ),
             Image.network(
               'https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png',
               width: 300,
               height:300,
+              loadingBuilder: (BuildContext context, Widget widget, ImageChunkEvent? progress) {
+                if (progress == null) {
+                  return widget;
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
               errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
                 return  Image.network(
                     'https://i.ytimg.com/vi/1KpB1umoRzM/maxresdefault.jpg',
                     width: 300,
-                    height:300
+                    height:300,
+                    loadingBuilder: (BuildContext context, Widget widget, ImageChunkEvent? progress) {
+                      if (progress == null) {
+                        return widget;
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
                 );
               },
             ),

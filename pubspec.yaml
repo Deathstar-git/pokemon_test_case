@@ -58,5 +58,6 @@ flutter:
     - graphics/images/splash_img.jpg
     - graphics/images/random_pokemon_img.jpg
     - graphics/images/get_pokemon_img.png
+    - graphics/images/error_img.png
   uses-material-design: true
 

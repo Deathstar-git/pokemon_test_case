@@ -22,7 +22,7 @@ PokemonDto _$PokemonDtoFromJson(Map<String, dynamic> json) {
 mixin _$PokemonDto {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  List<AbilityDto> get abilities => throw _privateConstructorUsedError;
+  List<AbilityListDto>? get abilities => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
 
@@ -41,7 +41,7 @@ abstract class $PokemonDtoCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      List<AbilityDto> abilities,
+      List<AbilityListDto>? abilities,
       int height,
       int weight});
 }
@@ -61,7 +61,7 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abilities = null,
+    Object? abilities = freezed,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -74,10 +74,10 @@ class _$PokemonDtoCopyWithImpl<$Res, $Val extends PokemonDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      abilities: null == abilities
+      abilities: freezed == abilities
           ? _value.abilities
           : abilities // ignore: cast_nullable_to_non_nullable
-              as List<AbilityDto>,
+              as List<AbilityListDto>?,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$_PokemonDtoCopyWith<$Res>
   $Res call(
       {int id,
       String name,
-      List<AbilityDto> abilities,
+      List<AbilityListDto>? abilities,
       int height,
       int weight});
 }
@@ -119,7 +119,7 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abilities = null,
+    Object? abilities = freezed,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -132,10 +132,10 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      abilities: null == abilities
+      abilities: freezed == abilities
           ? _value._abilities
           : abilities // ignore: cast_nullable_to_non_nullable
-              as List<AbilityDto>,
+              as List<AbilityListDto>?,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -150,11 +150,11 @@ class __$$_PokemonDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PokemonDto extends _PokemonDto {
+class _$_PokemonDto extends _PokemonDto with DiagnosticableTreeMixin {
   const _$_PokemonDto(
       {required this.id,
       required this.name,
-      final List<AbilityDto> abilities = const [],
+      final List<AbilityListDto>? abilities,
       required this.height,
       required this.weight})
       : _abilities = abilities,
@@ -167,13 +167,14 @@ class _$_PokemonDto extends _PokemonDto {
   final int id;
   @override
   final String name;
-  final List<AbilityDto> _abilities;
+  final List<AbilityListDto>? _abilities;
   @override
-  @JsonKey()
-  List<AbilityDto> get abilities {
+  List<AbilityListDto>? get abilities {
+    final value = _abilities;
+    if (value == null) return null;
     if (_abilities is EqualUnmodifiableListView) return _abilities;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_abilities);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -182,8 +183,20 @@ class _$_PokemonDto extends _PokemonDto {
   final int weight;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PokemonDto(id: $id, name: $name, abilities: $abilities, height: $height, weight: $weight)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PokemonDto'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('abilities', abilities))
+      ..add(DiagnosticsProperty('height', height))
+      ..add(DiagnosticsProperty('weight', weight));
   }
 
   @override
@@ -222,7 +235,7 @@ abstract class _PokemonDto extends PokemonDto {
   const factory _PokemonDto(
       {required final int id,
       required final String name,
-      final List<AbilityDto> abilities,
+      final List<AbilityListDto>? abilities,
       required final int height,
       required final int weight}) = _$_PokemonDto;
   const _PokemonDto._() : super._();
@@ -235,7 +248,7 @@ abstract class _PokemonDto extends PokemonDto {
   @override
   String get name;
   @override
-  List<AbilityDto> get abilities;
+  List<AbilityListDto>? get abilities;
   @override
   int get height;
   @override
@@ -243,6 +256,193 @@ abstract class _PokemonDto extends PokemonDto {
   @override
   @JsonKey(ignore: true)
   _$$_PokemonDtoCopyWith<_$_PokemonDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$AbilityListDto {
+  List<AbilityDto>? get ability => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_hidden')
+  bool get isHidden => throw _privateConstructorUsedError;
+  int get slot => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AbilityListDtoCopyWith<AbilityListDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AbilityListDtoCopyWith<$Res> {
+  factory $AbilityListDtoCopyWith(
+          AbilityListDto value, $Res Function(AbilityListDto) then) =
+      _$AbilityListDtoCopyWithImpl<$Res, AbilityListDto>;
+  @useResult
+  $Res call(
+      {List<AbilityDto>? ability,
+      @JsonKey(name: 'is_hidden') bool isHidden,
+      int slot});
+}
+
+/// @nodoc
+class _$AbilityListDtoCopyWithImpl<$Res, $Val extends AbilityListDto>
+    implements $AbilityListDtoCopyWith<$Res> {
+  _$AbilityListDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ability = freezed,
+    Object? isHidden = null,
+    Object? slot = null,
+  }) {
+    return _then(_value.copyWith(
+      ability: freezed == ability
+          ? _value.ability
+          : ability // ignore: cast_nullable_to_non_nullable
+              as List<AbilityDto>?,
+      isHidden: null == isHidden
+          ? _value.isHidden
+          : isHidden // ignore: cast_nullable_to_non_nullable
+              as bool,
+      slot: null == slot
+          ? _value.slot
+          : slot // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AbilityListDtoCopyWith<$Res>
+    implements $AbilityListDtoCopyWith<$Res> {
+  factory _$$_AbilityListDtoCopyWith(
+          _$_AbilityListDto value, $Res Function(_$_AbilityListDto) then) =
+      __$$_AbilityListDtoCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<AbilityDto>? ability,
+      @JsonKey(name: 'is_hidden') bool isHidden,
+      int slot});
+}
+
+/// @nodoc
+class __$$_AbilityListDtoCopyWithImpl<$Res>
+    extends _$AbilityListDtoCopyWithImpl<$Res, _$_AbilityListDto>
+    implements _$$_AbilityListDtoCopyWith<$Res> {
+  __$$_AbilityListDtoCopyWithImpl(
+      _$_AbilityListDto _value, $Res Function(_$_AbilityListDto) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ability = freezed,
+    Object? isHidden = null,
+    Object? slot = null,
+  }) {
+    return _then(_$_AbilityListDto(
+      ability: freezed == ability
+          ? _value._ability
+          : ability // ignore: cast_nullable_to_non_nullable
+              as List<AbilityDto>?,
+      isHidden: null == isHidden
+          ? _value.isHidden
+          : isHidden // ignore: cast_nullable_to_non_nullable
+              as bool,
+      slot: null == slot
+          ? _value.slot
+          : slot // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AbilityListDto extends _AbilityListDto with DiagnosticableTreeMixin {
+  const _$_AbilityListDto(
+      {final List<AbilityDto>? ability,
+      @JsonKey(name: 'is_hidden') required this.isHidden,
+      required this.slot})
+      : _ability = ability,
+        super._();
+
+  final List<AbilityDto>? _ability;
+  @override
+  List<AbilityDto>? get ability {
+    final value = _ability;
+    if (value == null) return null;
+    if (_ability is EqualUnmodifiableListView) return _ability;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'is_hidden')
+  final bool isHidden;
+  @override
+  final int slot;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AbilityListDto(ability: $ability, isHidden: $isHidden, slot: $slot)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AbilityListDto'))
+      ..add(DiagnosticsProperty('ability', ability))
+      ..add(DiagnosticsProperty('isHidden', isHidden))
+      ..add(DiagnosticsProperty('slot', slot));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AbilityListDto &&
+            const DeepCollectionEquality().equals(other._ability, _ability) &&
+            (identical(other.isHidden, isHidden) ||
+                other.isHidden == isHidden) &&
+            (identical(other.slot, slot) || other.slot == slot));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_ability), isHidden, slot);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AbilityListDtoCopyWith<_$_AbilityListDto> get copyWith =>
+      __$$_AbilityListDtoCopyWithImpl<_$_AbilityListDto>(this, _$identity);
+}
+
+abstract class _AbilityListDto extends AbilityListDto {
+  const factory _AbilityListDto(
+      {final List<AbilityDto>? ability,
+      @JsonKey(name: 'is_hidden') required final bool isHidden,
+      required final int slot}) = _$_AbilityListDto;
+  const _AbilityListDto._() : super._();
+
+  @override
+  List<AbilityDto>? get ability;
+  @override
+  @JsonKey(name: 'is_hidden')
+  bool get isHidden;
+  @override
+  int get slot;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AbilityListDtoCopyWith<_$_AbilityListDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -339,7 +539,7 @@ class __$$_AbilityDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AbilityDto extends _AbilityDto {
+class _$_AbilityDto extends _AbilityDto with DiagnosticableTreeMixin {
   const _$_AbilityDto({required this.name, required this.url}) : super._();
 
   factory _$_AbilityDto.fromJson(Map<String, dynamic> json) =>
@@ -351,8 +551,17 @@ class _$_AbilityDto extends _AbilityDto {
   final String url;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AbilityDto(name: $name, url: $url)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AbilityDto'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('url', url));
   }
 
   @override

@@ -35,12 +35,18 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
       ) async {
     emit(const _Loading());
     try {
-      final id = await _pokemonRandomizer.getRandomId();
-      final pokemon = await _pokemonRepository.getRandomPokemonById(id: id);
+      final pokemon = await _pokemonRepository.getPokemonByName(name: event.name);
       emit(_Loaded(pokemon));
     } catch (e) {
       emit(const _Error('Не удалось получить покемона'));
     }
+  }
+
+  Future<void> onWaiting(
+      Waiting event,
+      Emitter<PokemonState> emit,
+      ) async {
+    emit(const _Initial());
   }
 
   PokemonBloc(this._pokemonRepository, this._pokemonRandomizer)
@@ -50,7 +56,9 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
         getRandomPokemonById:
           (getRandomPokemonById) => onGetRandomPokemonById(getRandomPokemonById, emit),
         getPokemonByName:
-            (getRandomPokemonById) => onGetPokemonByName(getRandomPokemonById, emit)
+            (getRandomPokemonById) => onGetPokemonByName(getRandomPokemonById, emit),
+        waiting:
+            (waiting) => onWaiting(waiting, emit)
       );
     });
   }

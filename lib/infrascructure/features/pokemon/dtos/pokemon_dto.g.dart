@@ -11,9 +11,8 @@ _$_PokemonDto _$$_PokemonDtoFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       name: json['name'] as String,
       abilities: (json['abilities'] as List<dynamic>?)
-              ?.map((e) => AbilityDto.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
+          ?.map((e) => AbilityListDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       height: json['height'] as int,
       weight: json['weight'] as int,
     );

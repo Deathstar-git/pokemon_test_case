@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Pokemon {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  List<Ability> get abilities => throw _privateConstructorUsedError;
+  List<AbilityList>? get abilities => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
 
@@ -32,7 +32,11 @@ abstract class $PokemonCopyWith<$Res> {
       _$PokemonCopyWithImpl<$Res, Pokemon>;
   @useResult
   $Res call(
-      {int id, String name, List<Ability> abilities, int height, int weight});
+      {int id,
+      String name,
+      List<AbilityList>? abilities,
+      int height,
+      int weight});
 }
 
 /// @nodoc
@@ -50,7 +54,7 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abilities = null,
+    Object? abilities = freezed,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -63,10 +67,10 @@ class _$PokemonCopyWithImpl<$Res, $Val extends Pokemon>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      abilities: null == abilities
+      abilities: freezed == abilities
           ? _value.abilities
           : abilities // ignore: cast_nullable_to_non_nullable
-              as List<Ability>,
+              as List<AbilityList>?,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -87,7 +91,11 @@ abstract class _$$_PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id, String name, List<Ability> abilities, int height, int weight});
+      {int id,
+      String name,
+      List<AbilityList>? abilities,
+      int height,
+      int weight});
 }
 
 /// @nodoc
@@ -102,7 +110,7 @@ class __$$_PokemonCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abilities = null,
+    Object? abilities = freezed,
     Object? height = null,
     Object? weight = null,
   }) {
@@ -115,10 +123,10 @@ class __$$_PokemonCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      abilities: null == abilities
+      abilities: freezed == abilities
           ? _value._abilities
           : abilities // ignore: cast_nullable_to_non_nullable
-              as List<Ability>,
+              as List<AbilityList>?,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -137,7 +145,7 @@ class _$_Pokemon implements _Pokemon {
   _$_Pokemon(
       {required this.id,
       required this.name,
-      required final List<Ability> abilities,
+      required final List<AbilityList>? abilities,
       required this.height,
       required this.weight})
       : _abilities = abilities;
@@ -146,12 +154,14 @@ class _$_Pokemon implements _Pokemon {
   final int id;
   @override
   final String name;
-  final List<Ability> _abilities;
+  final List<AbilityList>? _abilities;
   @override
-  List<Ability> get abilities {
+  List<AbilityList>? get abilities {
+    final value = _abilities;
+    if (value == null) return null;
     if (_abilities is EqualUnmodifiableListView) return _abilities;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_abilities);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -192,7 +202,7 @@ abstract class _Pokemon implements Pokemon {
   factory _Pokemon(
       {required final int id,
       required final String name,
-      required final List<Ability> abilities,
+      required final List<AbilityList>? abilities,
       required final int height,
       required final int weight}) = _$_Pokemon;
 
@@ -201,7 +211,7 @@ abstract class _Pokemon implements Pokemon {
   @override
   String get name;
   @override
-  List<Ability> get abilities;
+  List<AbilityList>? get abilities;
   @override
   int get height;
   @override
@@ -213,9 +223,182 @@ abstract class _Pokemon implements Pokemon {
 }
 
 /// @nodoc
+mixin _$AbilityList {
+// required String? name,
+// required String? url,
+  List<Ability>? get ability => throw _privateConstructorUsedError;
+  bool get isHidden => throw _privateConstructorUsedError;
+  int get slot => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AbilityListCopyWith<AbilityList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AbilityListCopyWith<$Res> {
+  factory $AbilityListCopyWith(
+          AbilityList value, $Res Function(AbilityList) then) =
+      _$AbilityListCopyWithImpl<$Res, AbilityList>;
+  @useResult
+  $Res call({List<Ability>? ability, bool isHidden, int slot});
+}
+
+/// @nodoc
+class _$AbilityListCopyWithImpl<$Res, $Val extends AbilityList>
+    implements $AbilityListCopyWith<$Res> {
+  _$AbilityListCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ability = freezed,
+    Object? isHidden = null,
+    Object? slot = null,
+  }) {
+    return _then(_value.copyWith(
+      ability: freezed == ability
+          ? _value.ability
+          : ability // ignore: cast_nullable_to_non_nullable
+              as List<Ability>?,
+      isHidden: null == isHidden
+          ? _value.isHidden
+          : isHidden // ignore: cast_nullable_to_non_nullable
+              as bool,
+      slot: null == slot
+          ? _value.slot
+          : slot // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AbilityListCopyWith<$Res>
+    implements $AbilityListCopyWith<$Res> {
+  factory _$$_AbilityListCopyWith(
+          _$_AbilityList value, $Res Function(_$_AbilityList) then) =
+      __$$_AbilityListCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Ability>? ability, bool isHidden, int slot});
+}
+
+/// @nodoc
+class __$$_AbilityListCopyWithImpl<$Res>
+    extends _$AbilityListCopyWithImpl<$Res, _$_AbilityList>
+    implements _$$_AbilityListCopyWith<$Res> {
+  __$$_AbilityListCopyWithImpl(
+      _$_AbilityList _value, $Res Function(_$_AbilityList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ability = freezed,
+    Object? isHidden = null,
+    Object? slot = null,
+  }) {
+    return _then(_$_AbilityList(
+      ability: freezed == ability
+          ? _value._ability
+          : ability // ignore: cast_nullable_to_non_nullable
+              as List<Ability>?,
+      isHidden: null == isHidden
+          ? _value.isHidden
+          : isHidden // ignore: cast_nullable_to_non_nullable
+              as bool,
+      slot: null == slot
+          ? _value.slot
+          : slot // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AbilityList implements _AbilityList {
+  const _$_AbilityList(
+      {required final List<Ability>? ability,
+      required this.isHidden,
+      required this.slot})
+      : _ability = ability;
+
+// required String? name,
+// required String? url,
+  final List<Ability>? _ability;
+// required String? name,
+// required String? url,
+  @override
+  List<Ability>? get ability {
+    final value = _ability;
+    if (value == null) return null;
+    if (_ability is EqualUnmodifiableListView) return _ability;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final bool isHidden;
+  @override
+  final int slot;
+
+  @override
+  String toString() {
+    return 'AbilityList(ability: $ability, isHidden: $isHidden, slot: $slot)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AbilityList &&
+            const DeepCollectionEquality().equals(other._ability, _ability) &&
+            (identical(other.isHidden, isHidden) ||
+                other.isHidden == isHidden) &&
+            (identical(other.slot, slot) || other.slot == slot));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_ability), isHidden, slot);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AbilityListCopyWith<_$_AbilityList> get copyWith =>
+      __$$_AbilityListCopyWithImpl<_$_AbilityList>(this, _$identity);
+}
+
+abstract class _AbilityList implements AbilityList {
+  const factory _AbilityList(
+      {required final List<Ability>? ability,
+      required final bool isHidden,
+      required final int slot}) = _$_AbilityList;
+
+  @override // required String? name,
+// required String? url,
+  List<Ability>? get ability;
+  @override
+  bool get isHidden;
+  @override
+  int get slot;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AbilityListCopyWith<_$_AbilityList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$Ability {
-  String get name => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AbilityCopyWith<Ability> get copyWith => throw _privateConstructorUsedError;
@@ -226,7 +409,7 @@ abstract class $AbilityCopyWith<$Res> {
   factory $AbilityCopyWith(Ability value, $Res Function(Ability) then) =
       _$AbilityCopyWithImpl<$Res, Ability>;
   @useResult
-  $Res call({String name, String url});
+  $Res call({String? name, String? url});
 }
 
 /// @nodoc
@@ -242,18 +425,18 @@ class _$AbilityCopyWithImpl<$Res, $Val extends Ability>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? url = null,
+    Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -265,7 +448,7 @@ abstract class _$$_AbilityCopyWith<$Res> implements $AbilityCopyWith<$Res> {
       __$$_AbilityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String url});
+  $Res call({String? name, String? url});
 }
 
 /// @nodoc
@@ -278,18 +461,18 @@ class __$$_AbilityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? url = null,
+    Object? name = freezed,
+    Object? url = freezed,
   }) {
     return _then(_$_Ability(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -300,9 +483,9 @@ class _$_Ability implements _Ability {
   const _$_Ability({required this.name, required this.url});
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String url;
+  final String? url;
 
   @override
   String toString() {
@@ -330,12 +513,12 @@ class _$_Ability implements _Ability {
 
 abstract class _Ability implements Ability {
   const factory _Ability(
-      {required final String name, required final String url}) = _$_Ability;
+      {required final String? name, required final String? url}) = _$_Ability;
 
   @override
-  String get name;
+  String? get name;
   @override
-  String get url;
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$$_AbilityCopyWith<_$_Ability> get copyWith =>

@@ -20,18 +20,21 @@ mixin _$PokemonEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) getPokemonByName,
     required TResult Function() getRandomPokemonById,
+    required TResult Function() waiting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? getPokemonByName,
     TResult? Function()? getRandomPokemonById,
+    TResult? Function()? waiting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? getPokemonByName,
     TResult Function()? getRandomPokemonById,
+    TResult Function()? waiting,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$PokemonEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetPokemonByName value) getPokemonByName,
     required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(Waiting value) waiting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetPokemonByName value)? getPokemonByName,
     TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(Waiting value)? waiting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetPokemonByName value)? getPokemonByName,
     TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(Waiting value)? waiting,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +146,7 @@ class _$GetPokemonByName implements GetPokemonByName {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) getPokemonByName,
     required TResult Function() getRandomPokemonById,
+    required TResult Function() waiting,
   }) {
     return getPokemonByName(name);
   }
@@ -149,6 +156,7 @@ class _$GetPokemonByName implements GetPokemonByName {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? getPokemonByName,
     TResult? Function()? getRandomPokemonById,
+    TResult? Function()? waiting,
   }) {
     return getPokemonByName?.call(name);
   }
@@ -158,6 +166,7 @@ class _$GetPokemonByName implements GetPokemonByName {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? getPokemonByName,
     TResult Function()? getRandomPokemonById,
+    TResult Function()? waiting,
     required TResult orElse(),
   }) {
     if (getPokemonByName != null) {
@@ -171,6 +180,7 @@ class _$GetPokemonByName implements GetPokemonByName {
   TResult map<TResult extends Object?>({
     required TResult Function(GetPokemonByName value) getPokemonByName,
     required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(Waiting value) waiting,
   }) {
     return getPokemonByName(this);
   }
@@ -180,6 +190,7 @@ class _$GetPokemonByName implements GetPokemonByName {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetPokemonByName value)? getPokemonByName,
     TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(Waiting value)? waiting,
   }) {
     return getPokemonByName?.call(this);
   }
@@ -189,6 +200,7 @@ class _$GetPokemonByName implements GetPokemonByName {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetPokemonByName value)? getPokemonByName,
     TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(Waiting value)? waiting,
     required TResult orElse(),
   }) {
     if (getPokemonByName != null) {
@@ -247,6 +259,7 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) getPokemonByName,
     required TResult Function() getRandomPokemonById,
+    required TResult Function() waiting,
   }) {
     return getRandomPokemonById();
   }
@@ -256,6 +269,7 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? getPokemonByName,
     TResult? Function()? getRandomPokemonById,
+    TResult? Function()? waiting,
   }) {
     return getRandomPokemonById?.call();
   }
@@ -265,6 +279,7 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? getPokemonByName,
     TResult Function()? getRandomPokemonById,
+    TResult Function()? waiting,
     required TResult orElse(),
   }) {
     if (getRandomPokemonById != null) {
@@ -278,6 +293,7 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
   TResult map<TResult extends Object?>({
     required TResult Function(GetPokemonByName value) getPokemonByName,
     required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(Waiting value) waiting,
   }) {
     return getRandomPokemonById(this);
   }
@@ -287,6 +303,7 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetPokemonByName value)? getPokemonByName,
     TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(Waiting value)? waiting,
   }) {
     return getRandomPokemonById?.call(this);
   }
@@ -296,6 +313,7 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetPokemonByName value)? getPokemonByName,
     TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(Waiting value)? waiting,
     required TResult orElse(),
   }) {
     if (getRandomPokemonById != null) {
@@ -307,6 +325,112 @@ class _$GetRandomPokemonById implements GetRandomPokemonById {
 
 abstract class GetRandomPokemonById implements PokemonEvent {
   const factory GetRandomPokemonById() = _$GetRandomPokemonById;
+}
+
+/// @nodoc
+abstract class _$$WaitingCopyWith<$Res> {
+  factory _$$WaitingCopyWith(_$Waiting value, $Res Function(_$Waiting) then) =
+      __$$WaitingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WaitingCopyWithImpl<$Res>
+    extends _$PokemonEventCopyWithImpl<$Res, _$Waiting>
+    implements _$$WaitingCopyWith<$Res> {
+  __$$WaitingCopyWithImpl(_$Waiting _value, $Res Function(_$Waiting) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$Waiting implements Waiting {
+  const _$Waiting();
+
+  @override
+  String toString() {
+    return 'PokemonEvent.waiting()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Waiting);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) getPokemonByName,
+    required TResult Function() getRandomPokemonById,
+    required TResult Function() waiting,
+  }) {
+    return waiting();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? getPokemonByName,
+    TResult? Function()? getRandomPokemonById,
+    TResult? Function()? waiting,
+  }) {
+    return waiting?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? getPokemonByName,
+    TResult Function()? getRandomPokemonById,
+    TResult Function()? waiting,
+    required TResult orElse(),
+  }) {
+    if (waiting != null) {
+      return waiting();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetPokemonByName value) getPokemonByName,
+    required TResult Function(GetRandomPokemonById value) getRandomPokemonById,
+    required TResult Function(Waiting value) waiting,
+  }) {
+    return waiting(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetPokemonByName value)? getPokemonByName,
+    TResult? Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult? Function(Waiting value)? waiting,
+  }) {
+    return waiting?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetPokemonByName value)? getPokemonByName,
+    TResult Function(GetRandomPokemonById value)? getRandomPokemonById,
+    TResult Function(Waiting value)? waiting,
+    required TResult orElse(),
+  }) {
+    if (waiting != null) {
+      return waiting(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Waiting implements PokemonEvent {
+  const factory Waiting() = _$Waiting;
 }
 
 /// @nodoc

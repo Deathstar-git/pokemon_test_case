@@ -15,7 +15,6 @@ class RandomPokemonPage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
               extendBodyBehindAppBar: true,
-              // backgroundColor: Colors.red,
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0,
